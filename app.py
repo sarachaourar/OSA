@@ -8,8 +8,8 @@ import argparse
 #Authentication
 os.environ['GDAL_HTTP_TCP_KEEPALIVE'] = "YES"
 os.environ['AWS_S3_ENDPOINT'] = "eodata.dataspace.copernicus.eu"
-os.environ['AWS_ACCESS_KEY_ID'] = "your_access_key" # !
-os.environ['AWS_SECRET_ACCESS_KEY'] = "your_secret_access_key" # !
+os.environ['AWS_ACCESS_KEY_ID'] = "FN3R5473282K6H8FCUBG" # !
+os.environ['AWS_SECRET_ACCESS_KEY'] = "Ri93uzYwpAKOFLWMYpu3qGmEtnq0qEHG0UVq8N7N" # !
 os.environ['AWS_HTTPS'] = "YES"
 os.environ['AWS_VIRTUAL_HOSTING'] = "FALSE"
 os.environ['GDAL_HTTP_UNSAFESSL'] = "YES"
@@ -18,6 +18,7 @@ URL = "https://stac.dataspace.copernicus.eu/v1"
 cat = pystac_client.Client.open(URL)
 cat.add_conforms_to("ITEM_SEARCH")
 
+#ask Igor about implimentation in the simulation interface
 geom = {
     "type": "Polygon",
     "coordinates": [
@@ -107,8 +108,8 @@ from reportlab.lib.units import inch
 PAGE_HEIGHT=defaultPageSize[1]; PAGE_WIDTH=defaultPageSize[0]
 styles = getSampleStyleSheet()
 
-Title = "Oil Spill Accidents Analyser"
-pageinfo = "OSAA report"
+Title = "Oil Spill Analyser"
+pageinfo = "OSA report"
 def myFirstPage(canvas, doc):
     canvas.saveState()
     canvas.setFont('Times-Bold',16)
