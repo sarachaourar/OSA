@@ -18,7 +18,6 @@ URL = "https://stac.dataspace.copernicus.eu/v1"
 cat = pystac_client.Client.open(URL)
 cat.add_conforms_to("ITEM_SEARCH")
 
-#ask Igor about implimentation in the simulation interface
 geom = {
     "type": "Polygon",
     "coordinates": [
