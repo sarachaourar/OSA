@@ -1,0 +1,55 @@
+# =============================================================================
+# OSA (Oil Spill Analysis) pipeline configuration
+# =============================================================================
+# Everything here is NON-secret. Credentials go in `.env` (see .env.example),
+# never in this file.
+
+[openeo]
+backend_url = "https://openeo.dataspace.copernicus.eu"
+
+[aoi]
+# Area of interest, WGS84 decimal degrees.
+west  = 56.318665
+south = 17.491905
+east  = 56.364412
+north = 17.520227
+
+[search]
+# Default search window. Any of these can be overridden per-run with
+# --start-date / --start-time / --end-date on the command line.
+start_date = "2026-07-20"
+start_time = "00:00:00"
+end_date   = "2026-07-31"
+
+[sentinel2]
+collection = "SENTINEL2_L2A"
+bands = ["B04", "B03", "B02"]
+
+[sentinel1]
+collection = "SENTINEL1_GRD"
+bands = ["VV"]
+backscatter_coefficient = "sigma0-ellipsoid"
+
+[jobs]
+max_concurrent_jobs = 3          # adjust to match what your openEO account allows (3 is the limit for a free account)
+initial_poll_interval_sec = 30
+max_poll_interval_sec = 60
+
+[paths]
+sentinel1_dir = "sent1"
+sentinel2_dir = "sent2"
+# Local checkpoint file. Not included in this handoff -- copy it next to
+# osa_pipeline.py or update this path.
+model_path = "./deepLabV3_resnet_oilspill_final.pth"
+
+[model]
+architecture   = "DeepLabV3Plus"   # must match a class name in segmentation_models_pytorch
+encoder_name   = "resnet34"
+encoder_weights = "imagenet"
+in_channels    = 1
+num_classes    = 1
+input_size     = 256               # square resize applied before inference
+threshold      = 0.5               # sigmoid probability cutoff for the binary mask
+
+[report]
+title = "Oil Spill Analysis Report"

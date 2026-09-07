@@ -1,0 +1,32 @@
+# Python 3.11+ recommended.
+# The notebook this was converted from ran on Python 3.12.
+
+# --- openEO / environment ---
+openeo
+python-dotenv
+
+# --- Raster / vector geospatial I/O ---
+rasterio
+geopandas
+shapely
+pyogrio          # fast vector I/O backend used by geopandas for Shapefile read/write
+
+# --- Imagery / plotting ---
+numpy
+matplotlib
+scikit-image
+Pillow
+
+# --- Model inference ---
+torch
+segmentation-models-pytorch
+albumentations
+
+# --- PDF report ---
+reportlab
+
+# --- TOML parsing on Python < 3.11 only (3.11+ has `tomllib` built in) ---
+tomli; python_version < "3.11"
+
+# NOTE: this list is unpinned. 
+# Check requirments.lock.txt to reproduce the exact environment variables.
