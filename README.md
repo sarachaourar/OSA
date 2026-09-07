@@ -1,7 +1,7 @@
-# OSA Pipeline (Oil Spill Analysis)
+# OSA Pipeline (Oil Spill Analyser)
 
-This is a script fetches a Sentinel-1 and Sentinel-2 image for 
-an area/time you specify, runs a segmentation model on
+This is a script that fetches a Sentinel-1 and Sentinel-2 image from the openEO library for 
+a specified area and time, runs a segmentation model on
 the Sentinel-1 image to detect a potential oil spill, 
 and packages the imagery, mask, shapefile, 
 and a PDF report into a zip file.
