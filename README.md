@@ -6,11 +6,13 @@ the Sentinel-1 image to detect a potential oil spill,
 and packages the imagery, mask, shapefile, 
 and a PDF report into a zip file.
 
-## Files in this handoff
+## Files
 
 | File | Purpose |
 |---|---|
 | `osa_pipeline.py` | The pipeline. Run this. |
+| `eoapi_preprocessor.py` | Main file for sentinel-1 image processing. |
+| `deepLabV3_resnet_oilspill_final.pth` | AI model for running inference. |
 | `config.toml` | All non-secret settings (AOI, dates, model params, paths). Edit freely. |
 | `.env.example` | Template for your openEO credentials. Copy to `.env` and fill in. |
 | `requirements.txt` | Python packages to install. |
